@@ -1,3 +1,4 @@
+<?php $this->setVar('title', "admin - Profile (". $user["name"].")"); ?>
 <?= $this->extend('layout\admin') ?>
 
 <?= $this->section('breadcrumb') ?>
@@ -5,7 +6,7 @@
   <div class="page-title">
     <div class="row">
       <div class="col-sm-6 p-0">
-        <h3>User Profile</h3>
+        <h3><?= esc($user["name"]) ?> Profile</h3>
       </div>
       <div class="col-sm-6 p-0">
         <ol class="breadcrumb">
@@ -13,7 +14,8 @@
               <svg class="stroke-icon">
                 <use href="<?= base_url('') ?>assets/svg/icon-sprite.svg#stroke-home"></use>
               </svg></a></li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item">Profile</li>
+          <li class="breadcrumb-item active"><?= esc($user["name"]) ?></li>
         </ol>
       </div>
     </div>
@@ -30,7 +32,7 @@
         <div class="card hovercard text-center">
           <div class="cardheader"></div>
           <div class="user-image">
-            <div class="avatar"><img alt="" src="../assets/images/user/7.jpg"></div>
+            <div class="avatar"><img alt="" src="<?= base_url('./media/profile/'.esc($user["profile"])) ?>"></div>
             <div class="icon-wrapper"><i class="icofont icofont-pencil-alt-5"></i></div>
           </div>
           <div class="info">
@@ -39,7 +41,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="ttl-info text-start">
-                      <h5><i class="fa fa-envelope"></i>   Email</h5><span>Marekjecno@yahoo.com</span>
+                      <h5><i class="fa fa-envelope"></i>   Email</h5><span><?= esc($user["email"]) ?></span>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -51,8 +53,8 @@
               </div>
               <div class="col-sm-12 col-lg-4 order-sm-0 order-xl-1">
                 <div class="user-designation">
-                  <div class="title"><a target="_blank" href="#">Mark jecno</a></div>
-                  <div class="desc">designer</div>
+                  <div class="title"><a target="_blank" href="#"><?= esc($user["name"]) ?></a></div>
+                  <div class="desc"><?= esc($user["specialist"]) ?></div>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4 order-sm-2 order-xl-2">
@@ -64,7 +66,7 @@
                   </div>
                   <div class="col-md-6">
                     <div class="ttl-info text-start">
-                      <h5><i class="fa fa-location-arrow"></i>   Location</h5><span>B69 Near Schoool Demo Home</span>
+                      <h5><i class="fa fa-location-arrow"></i>   Status</h5><span><?= esc($user["status"]) ?></span>
                     </div>
                   </div>
                 </div>
@@ -105,32 +107,20 @@
           <div class="profile-img-style">
             <div class="row">
               <div class="col-sm-8">
-                <div class="d-flex"><img class="img-thumbnail rounded-circle me-3" src="../assets/images/user/7.jpg"
+                <div class="d-flex"><img class="img-thumbnail rounded-circle me-3" src="<?= base_url('./media/profile/'.esc($user["profile"])) ?>"
                     alt="Generic placeholder image">
                   <div class="flex-grow-1 align-self-center">
-                    <h5 class="mt-0 user-name">JOHAN DIO</h5>
+                    <h5 class="mt-0 user-name"><?= esc($user["name"]) ?></h5>
                   </div>
                 </div>
               </div>
               <div class="col-sm-4 align-self-center">
-                <div class="float-sm-end"><small>10 Hours ago</small></div>
+                <div class="float-sm-end"><small>CV</small></div>
               </div>
             </div>
             <hr>
-            <p>Dressing is a way of life. My customers are successful working women. I want people to be afraid of the
-              women I dress. Age is something only in your head or a stereotype. Age means nothing when you are
-              passionate about something. There has to be a balance between your mental satisfaction and the financial
-              needs of your company.</p>
-            <div class="img-container">
-              <div class="my-gallery" id="aniimated-thumbnials" itemscope="">
-                <figure itemprop="associatedMedia" itemscope=""><a
-                    href="../assets/images/other-images/profile-style-img3.png" itemprop="contentUrl"
-                    data-size="1600x950"><img class="img-fluid rounded"
-                      src="../assets/images/other-images/profile-style-img3.png" itemprop="thumbnail"
-                      alt="gallery"></a>
-                  <figcaption itemprop="caption description">Image caption 1</figcaption>
-                </figure>
-              </div>
+            <div>
+              <iframe src="<?= base_url("./media/cv/".esc($user['cv'])) ?>" frameborder="0" width="100%" height="600px"></iframe>
             </div>
             <div class="like-comment">
               <ul class="list-inline">
@@ -148,153 +138,6 @@
         </div>
       </div>
       <!-- user profile second-style end-->
-      <!-- user profile third-style start-->
-      <div class="col-sm-12">
-        <div class="card">
-          <div class="profile-img-style">
-            <div class="row">
-              <div class="col-sm-8">
-                <div class="d-flex"><img class="img-thumbnail rounded-circle me-3" src="../assets/images/user/7.jpg"
-                    alt="Generic placeholder image">
-                  <div class="flex-grow-1 align-self-center">
-                    <h5 class="mt-0 user-name">JOHAN DIO</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 align-self-center">
-                <div class="float-sm-end"><small>10 Hours ago</small></div>
-              </div>
-            </div>
-            <hr>
-            <p>Success isn't about the end result, it's about what you learn along the way. Confidence. If you have it,
-              you can make anything look good. Grunge is a hippied romantic version of punk. I'm an accomplice to
-              helping women get what they want. Clothes can transform your mood and confidence. I think it's an old
-              fashioned notion that fashion needs to be exclusive to be fashionable.</p>
-            <div class="row mt-4 pictures my-gallery" id="aniimated-thumbnials-2" itemscope="">
-              <figure class="col-sm-6" itemprop="associatedMedia" itemscope=""><a
-                  href="../assets/images/other-images/profile-style-img3.png" itemprop="contentUrl"
-                  data-size="1600x950"><img class="img-fluid rounded"
-                    src="../assets/images/other-images/profile-style-img.png" itemprop="thumbnail"
-                    alt="gallery"></a>
-                <figcaption itemprop="caption description">Image caption 1</figcaption>
-              </figure>
-              <figure class="col-sm-6" itemprop="associatedMedia" itemscope=""><a
-                  href="../assets/images/other-images/profile-style-img3.png" itemprop="contentUrl"
-                  data-size="1600x950"><img class="img-fluid rounded"
-                    src="../assets/images/other-images/profile-style-img.png" itemprop="thumbnail"
-                    alt="gallery"></a>
-                <figcaption itemprop="caption description">Image caption 2</figcaption>
-              </figure>
-            </div>
-            <div class="like-comment">
-              <ul class="list-inline">
-                <li class="list-inline-item border-right pe-3">
-                  <label class="m-0"><a href="#"><i class="fa fa-heart"></i></a>  Like</label><span
-                    class="ms-2 counter">2659</span>
-                </li>
-                <li class="list-inline-item ms-2">
-                  <label class="m-0"><a href="#"><i class="fa fa-comment"></i></a>  Comment</label><span
-                    class="ms-2 counter">569</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- user profile third-style end-->
-      <!-- user profile fourth-style start-->
-      <div class="col-sm-12">
-        <div class="card">
-          <div class="profile-img-style">
-            <div class="row">
-              <div class="col-sm-8">
-                <div class="d-flex"><img class="img-thumbnail rounded-circle me-3" src="../assets/images/user/7.jpg"
-                    alt="Generic placeholder image">
-                  <div class="flex-grow-1 align-self-center">
-                    <h5 class="mt-0 user-name">JOHAN DIO</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 align-self-center">
-                <div class="float-sm-end"><small>10 Hours ago</small></div>
-              </div>
-            </div>
-            <hr>
-            <p>Comfort is very important to me. I think people live better in big houses and in big clothes. Design and
-              style should work toward making you look good and feel good without a lot of effort so you can get on with
-              the things that matter. My shows are about the complete woman who swallows it all. Its a question of
-              survival. Those fashion designers are just crazy; but arent we all? You can only go forward by making
-              mistakes.</p>
-            <div class="like-comment mt-4">
-              <ul class="list-inline">
-                <li class="list-inline-item border-right pe-3">
-                  <label class="m-0"><a href="#"><i class="fa fa-heart"></i></a>  Like</label><span
-                    class="ms-2 counter">2659</span>
-                </li>
-                <li class="list-inline-item ms-2">
-                  <label class="m-0"><a href="#"><i class="fa fa-comment"></i></a>  Comment</label><span
-                    class="ms-2 counter">569</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- user profile fourth-style end-->
-      <!-- user profile fifth-style start-->
-      <div class="col-sm-12">
-        <div class="card">
-          <div class="profile-img-style">
-            <div class="row">
-              <div class="col-sm-8">
-                <div class="d-flex"><img class="img-thumbnail rounded-circle me-3" src="../assets/images/user/7.jpg"
-                    alt="Generic placeholder image">
-                  <div class="flex-grow-1 align-self-center">
-                    <h5 class="mt-0 user-name">JOHAN DIO</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 align-self-center">
-                <div class="float-sm-end"><small>10 Hours ago</small></div>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-lg-12 col-xl-4">
-                <div class="my-gallery" id="aniimated-thumbnials-3" itemscope="">
-                  <figure itemprop="associatedMedia" itemscope=""><a href="../assets/images/blog/img.png"
-                      itemprop="contentUrl" data-size="1600x950"><img class="img-fluid rounded"
-                        src="../assets/images/blog/img.png" itemprop="thumbnail" alt="gallery"></a>
-                    <figcaption itemprop="caption description">Image caption 1</figcaption>
-                  </figure>
-                </div>
-                <div class="like-comment mt-4 like-comment-sm-mb">
-                  <ul class="list-inline">
-                    <li class="list-inline-item border-right pe-3">
-                      <label class="m-0"><a href="#"><i class="fa fa-heart"></i></a>  Like</label><span
-                        class="ms-2 counter">2659</span>
-                    </li>
-                    <li class="list-inline-item ms-2">
-                      <label class="m-0"><a href="#"><i class="fa fa-comment"></i></a>  Comment</label><span
-                        class="ms-2 counter">569</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-xl-6">
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                  classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-                  professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                  consecteturContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
-                  of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-                  professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                  consectetur</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- user profile fifth-style end-->
       <!-- <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="pswp__bg"></div>
         <div class="pswp__scroll-wrap">

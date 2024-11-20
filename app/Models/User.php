@@ -30,9 +30,9 @@ class User extends Model
     // Validation
     protected $validationRules      = [
         'profile'    => 'is_image[profile]|ext_in[profile,jpg,jpeg,png]|max_size[profile,2048]',
-        'name' => 'required|regex_match[/^[a-zA-Z.\-\s]+$/]|min_length[3]|max_length[100]',
+        'name'       => 'required|regex_match[/^[a-zA-Z.\-\s]+$/]|min_length[3]|max_length[100]',
         'nim'        => 'required|exact_length[10]|numeric|is_unique[users.nim]',
-        'specialist' => 'required|alpha_space|max_length[100]',
+        'specialist' => 'required|max_length[100]',
         'cv'         => 'ext_in[cv,pdf]|max_size[cv,2048]',
         'status'     => 'required|in_list[active,inactive,passed]',
         'email'      => 'required|valid_email|is_unique[users.email]',
@@ -57,7 +57,6 @@ class User extends Model
         ],
         'specialist' => [
             'required'    => 'Spesialisasi wajib diisi.',
-            'alpha_space' => 'Spesialisasi hanya boleh mengandung huruf dan spasi.',
             'max_length'  => 'Spesialisasi tidak boleh lebih dari 100 karakter.',
         ],
         'cv' => [

@@ -62,50 +62,51 @@ class UserController extends BaseController
     // }
 
     public function store()
-{
-    $token = uniqid();
-    $file_profile = $this->request->getFile('profile');
-    $file_cv = $this->request->getFile('cv');
+    {
+        $token = uniqid();
+        $file_profile = $this->request->getFile('profile');
+        $file_cv = $this->request->getFile('cv');
 
-    $profileName = $file_profile ? $token . '.' . $file_profile->getClientExtension() : null;
-    $cvName = $file_cv ? $token . '.' . $file_cv->getClientExtension() : null;
+        $profileName = $file_profile ? $token . '.' . $file_profile->getClientExtension() : null;
+        $cvName = $file_cv ? $token . '.' . $file_cv->getClientExtension() : null;
 
-    $data = [
-        'profile'    => $profileName,
-        'name'       => $this->request->getPost('name'),
-        'nim'        => $this->request->getPost('nim'),
-        'specialist' => $this->request->getPost('specialist'),
-        'cv'         => $cvName,
-        'status'     => $this->request->getPost('status'),
-        'email'      => $this->request->getPost('email'),
-    ];
+        $data = [
+            'profile'    => $profileName,
+            'name'       => $this->request->getPost('name'),
+            'nim'        => $this->request->getPost('nim'),
+            'specialist' => $this->request->getPost('specialist'),
+            'cv'         => $cvName,
+            'status'     => $this->request->getPost('status'),
+            'email'      => $this->request->getPost('email'),
+        ];
 
-    // Validasi dan Simpan Data
-    if (!$this->users->save($data)) {
-        // Ambil pesan error
-        $errors = $this->users->errors();
+        // Validasi dan Simpan Data
+        if (!$this->users->save($data)) {
+            // Ambil pesan error
+            $errors = $this->users->errors();
 
-        // Redirect kembali dengan pesan error
-        return redirect()->back(base_url('users-add'))->withInput()->with('errors', $errors);
+            // Redirect kembali dengan pesan error
+            return redirect()->back()->withInput()->with('errors', $errors);
+        }
+
+        // Pindahkan file jika validasi berhasil
+        if ($file_profile && $file_profile->isValid() && !$file_profile->hasMoved()) {
+            $file_profile->move('./media/profile', $profileName);
+        }
+
+        if ($file_cv && $file_cv->isValid() && !$file_cv->hasMoved()) {
+            $file_cv->move('./media/cv', $cvName);
+        }
+
+        return redirect()->to('./users')->with('store', "Berhasil menambahkan data {$data['name']}");
     }
-
-    // Pindahkan file jika validasi berhasil
-    if ($file_profile && $file_profile->isValid() && !$file_profile->hasMoved()) {
-        $file_profile->move('./media/profile', $profileName);
-    }
-
-    if ($file_cv && $file_cv->isValid() && !$file_cv->hasMoved()) {
-        $file_cv->move('./media/cv', $cvName);
-    }
-
-    return redirect(base_url('users-add'))->to('./users')->with('store', "Berhasil menambahkan data {$data['name']}");
-}
-
 
     public function show($q)
     {
-        $rawUser = $this->users->where('id', $q);
+        $data =  [
+            'user' => $this->users->where('id', $q)->first(),
+        ];
 
-        return view('');
+        return view('admin/profile/profile', $data);
     }
 }

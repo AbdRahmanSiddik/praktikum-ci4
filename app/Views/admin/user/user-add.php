@@ -41,16 +41,16 @@
                   <input type="file" accept="image/*" name="profile" id="input-file" hidden>
                   <div id="image-view">
                     <img src="508-icon.png">
-                    <p>Image Profile</p>
+                    <p>Image Profile <?= session('errors.profile') ?></p>
                     <p>Drag Here</p>
                   </div>
                 </label>
               </div>
               <div class="col-12 position-relative mb-2">
                 <label class="form-label" for="cv">Upload CV</label>
-                <input class="form-control" name="cv" id="cv" type="file" placeholder="Your Name"
+                <input class="form-control <?= session('errors.cv') ? 'is-invalid' : '' ?>" name="cv" id="cv" type="file" placeholder="Your Name"
                   required>
-                <div class="invalid-feedback">Looks good!</div>
+                <div class="invalid-feedback"><?= session('errors.cv') ?></div>
               </div>
             </div>
             <div class="col-sm-12 col-md-6 row g-0 p-2">
@@ -68,12 +68,12 @@
               </div>
               <div class="col-12 position-relative mb-2">
                 <label class="form-label" for="specialist">Specialist</label>
-                <input class="form-control" name="specialist" id="specialist" type="text" placeholder="CodeIgniter"
+                <input class="form-control <?= session('errors.specialist') ? 'is-invalid' : '' ?>" name="specialist" id="specialist" type="text" placeholder="CodeIgniter"
                   required>
-                <div class="invalid-feedback">Looks good!</div>
+                <div class="invalid-feedback"><?= session('errors.specialist') ?></div>
               </div>
               <div class="col-12 position-relative mb-2">
-                <label for="status" class="form-label">Status</label>
+                <label for="status" class="form-label <?= session('errors.status') ? 'is-invalid' : '' ?>">Status</label>
                 <select class="form-select" name="status" id="status" required>
                   <option selected disabled value="">Default: Active</option>
                   <option value="active">active</option>
@@ -81,14 +81,14 @@
                   <option value="passed">passed</option>
                 </select>
                 <div class="invalid-feedback">
-                  Please select a valid state.
+                <?= session('errors.status') ?>
                 </div>
               </div>
               <div class="col-12 position-relative mb-2">
                 <label class="form-label" for="email">E-Mail</label>
-                <input class="form-control" name="email" id="email" type="email" placeholder="example@gmail.com"
+                <input class="form-control <?= session('errors.email') ? 'is-invalid' : '' ?>" name="email" id="email" type="email" placeholder="example@gmail.com"
                   required>
-                <div class="invalid-feedback">Looks good!</div>
+                <div class="invalid-feedback"><?= session('errors.email') ?></div>
               </div>
             </div>
             <div class="col-12 text-end">
