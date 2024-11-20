@@ -44,8 +44,22 @@
 <script src="<?= base_url('') ?>assets/js/typeahead-search/handlebars.js"></script>
 <script src="<?= base_url('') ?>assets/js/typeahead-search/typeahead-custom.js"></script>
 <script src="<?= base_url('') ?>assets/js/vector-map/map-vector.js"></script>
+<script src="<?= base_url('') ?>assets/js/slick/slick.min.js"></script>
+<script src="<?= base_url('') ?>assets/js/slick/slick.js"></script>
+<script src="<?= base_url('') ?>assets/js/header-slick.js"></script>
+<script src="<?= base_url('') ?>assets/js/form-validation-custom.js"></script>
+<script src="<?= base_url('') ?>assets/js/height-equal.js"></script>
+<script src="<?= base_url('') ?>assets/js/dropzone/dropzone.js"></script>
+<script src="<?= base_url('') ?>assets/js/dropzone/dropzone-script.js"></script>
+<!-- <script src="<?= base_url('') ?>assets/js/filepond/filepond-plugin-image-preview.js"></script>
+<script src="<?= base_url('') ?>assets/js/filepond/filepond-plugin-file-rename.js"></script>
+<script src="<?= base_url('') ?>assets/js/filepond/filepond-plugin-image-transform.js"></script>
+<script src="<?= base_url('') ?>assets/js/filepond/filepond.js"></script>
+<script src="<?= base_url('') ?>assets/js/filepond/custom-filepond.js"></script> -->
+<script src="<?= base_url('') ?>assets/js/tooltip-init.js"></script>
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
 <script src="<?= base_url('') ?>assets/js/script.js"></script>
 <script src="<?= base_url('') ?>assets/js/theme-customizer/customizer.js"></script>
 <!-- Plugin used-->
+<script src="<?= base_url('') ?>assets/js/myjs.js"></script>

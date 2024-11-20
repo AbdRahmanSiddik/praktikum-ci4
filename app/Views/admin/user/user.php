@@ -30,7 +30,10 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header pb-0 card-no-border">
-          <h4 class="mb-3">Data user ICC 22</h4>
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h4 class="mb-3">Data user ICC 22</h4>
+            <a class="btn btn-primary" href="<?= base_url('users-add') ?>">+ Add User</a>
+          </div>
           <div class="alert border-warning alert-dismissible fade show p-0 mb-0" role="alert">
             <div class="alert-arrow bg-warning"><i class="icon-alert"></i></div>
             <p>Warning! <strong class="txt-dark"> Use this data as best as possible and do not share it!</strong></p>
@@ -91,7 +94,7 @@
                 </tr>
                 <?php endforeach; ?>
               </tbody>
-              <tfoot>
+              <!-- <tfoot>
                 <tr>
                   <th>Profile</th>
                   <th>Name</th>
@@ -102,7 +105,7 @@
                   <th>E-mail</th>
                   <th>Action</th>
                 </tr>
-              </tfoot>
+              </tfoot> -->
             </table>
           </div>
         </div>

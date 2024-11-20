@@ -23,6 +23,11 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/date-picker.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/vector-map.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/fullcalender.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/slick.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/slick-theme.css">
+<!-- <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/dropzone.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/filepond.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/filepond-plugin-image-preview.css"> -->
 <!-- Plugins css Ends-->
 <!-- Bootstrap css-->
 <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/vendors/bootstrap.css">
@@ -31,3 +36,4 @@
 <link id="color" rel="stylesheet" href="<?= base_url('') ?>assets/css/color-1.css" media="screen">
 <!-- Responsive css-->
 <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/responsive.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/custom.css">

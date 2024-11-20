@@ -29,26 +29,25 @@ class User extends Model
 
     // Validation
     protected $validationRules      = [
-        'profile'    => 'uploaded[profile]|is_image[profile]|ext_in[profile,jpg,jpeg,png]|max_size[profile,2048]',
-        'name'       => 'required|alpha_space|min_length[3]|max_length[100]',
+        'profile'    => 'is_image[profile]|ext_in[profile,jpg,jpeg,png]|max_size[profile,2048]',
+        'name' => 'required|regex_match[/^[a-zA-Z.\-\s]+$/]|min_length[3]|max_length[100]',
         'nim'        => 'required|exact_length[10]|numeric|is_unique[users.nim]',
         'specialist' => 'required|alpha_space|max_length[100]',
-        'cv'         => 'uploaded[cv]|ext_in[cv,pdf]|max_size[cv,2048]',
+        'cv'         => 'ext_in[cv,pdf]|max_size[cv,2048]',
         'status'     => 'required|in_list[active,inactive,passed]',
         'email'      => 'required|valid_email|is_unique[users.email]',
     ];
     protected $validationMessages   = [
         'profile' => [
-        'uploaded' => 'Foto profil harus diunggah.',
-        'is_image' => 'File profil harus berupa gambar.',
-        'ext_in'   => 'Foto profil harus dalam format jpg, jpeg, atau png.',
-        'max_size' => 'Ukuran gambar tidak boleh lebih dari 2 MB.',
+            'is_image' => 'File profil harus berupa gambar.',
+            'ext_in'   => 'Foto profil harus dalam format jpg, jpeg, atau png.',
+            'max_size' => 'Ukuran gambar tidak boleh lebih dari 2 MB.',
         ],
         'name' => [
-        'required'    => 'Nama wajib diisi.',
-        'alpha_space' => 'Nama hanya boleh mengandung huruf dan spasi.',
-        'min_length'  => 'Nama harus memiliki minimal 3 karakter.',
-        'max_length'  => 'Nama tidak boleh lebih dari 100 karakter.',
+            'required'    => 'Nama wajib diisi.',
+            'regex_match' => 'Nama hanya boleh mengandung huruf, spasi, tanda titik (.), dan tanda hubung (-).',
+            'min_length'  => 'Nama harus memiliki minimal 3 karakter.',
+            'max_length'  => 'Nama tidak boleh lebih dari 100 karakter.',
         ],
         'nim' => [
             'required'    => 'NIM wajib diisi.',
@@ -62,7 +61,6 @@ class User extends Model
             'max_length'  => 'Spesialisasi tidak boleh lebih dari 100 karakter.',
         ],
         'cv' => [
-            'uploaded' => 'CV harus diunggah.',
             'ext_in'   => 'CV harus berupa file dengan format PDF.',
             'max_size' => 'Ukuran CV tidak boleh lebih dari 2 MB.',
         ],

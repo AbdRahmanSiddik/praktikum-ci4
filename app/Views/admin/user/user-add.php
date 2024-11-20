@@ -32,49 +32,68 @@
           <h4>Tooltip form validation</h4>
         </div>
         <div class="card-body">
-          <form class="row g-3 needs-validation custom-input" novalidate="">
-            <div class="col-md-4 position-relative">
-              <label class="form-label" for="validationTooltip01">First name</label>
-              <input class="form-control" id="validationTooltip01" type="text" placeholder="Mark" required="">
-              <div class="valid-tooltip">Looks good!</div>
-            </div>
-            <div class="col-md-4 position-relative">
-              <label class="form-label" for="validationTooltip02">Last name</label>
-              <input class="form-control" id="validationTooltip02" type="text" placeholder="Otto" required="">
-              <div class="valid-tooltip">Looks good!</div>
-            </div>
-            <div class="col-md-4 position-relative">
-              <label class="form-label" for="validationTooltipUsername">Username</label>
-              <div class="input-group has-validation"><span class="input-group-text"
-                  id="validationTooltipUsernamePrepend">@</span>
-                <input class="form-control" id="validationTooltipUsername" type="text"
-                  aria-describedby="validationTooltipUsernamePrepend" required="">
-                <div class="invalid-tooltip">Please choose a unique and valid username.</div>
+          <form class="row g-1 needs-validation custom-input" novalidate method="post" action=""
+            enctype="multipart/form-data">
+            <?= csrf_field() ?>
+            <div class="col-sm-12 col-md-6 row g-0 p-2">
+              <div class="">
+                <label for="input-file" id="drop-area">
+                  <input type="file" accept="image/*" name="profile" id="input-file" hidden>
+                  <div id="image-view">
+                    <img src="508-icon.png">
+                    <p>Image Profile</p>
+                    <p>Drag Here</p>
+                  </div>
+                </label>
+              </div>
+              <div class="col-12 position-relative mb-2">
+                <label class="form-label" for="cv">Upload CV</label>
+                <input class="form-control" name="cv" id="cv" type="file" placeholder="Your Name"
+                  required>
+                <div class="invalid-feedback">Looks good!</div>
               </div>
             </div>
-            <div class="col-md-6 position-relative">
-              <label class="form-label" for="validationTooltip03">City</label>
-              <input class="form-control" id="validationTooltip03" type="text" required="">
-              <div class="invalid-tooltip">Please provide a valid city.</div>
+            <div class="col-sm-12 col-md-6 row g-0 p-2">
+              <div class="col-12 position-relative mb-2">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control <?= session('errors.name') ? 'is-invalid' : '' ?>" name="name" id="name" type="text" placeholder="Your Name"
+                  required>
+                <div class="invalid-feedback"><?= session('errors.name') ?></div>
+              </div>
+              <div class="col-12 position-relative mb-2">
+                <label class="form-label" for="nim">NIM</label>
+                <input class="form-control <?= session('errors.nim') ? 'is-invalid' : '' ?>" name="nim" id="nim" type="text" placeholder="2202310..."
+                  inputmode="numeric" required>
+                <div class="invalid-feedback"><?= session('errors.nim') ?></div>
+              </div>
+              <div class="col-12 position-relative mb-2">
+                <label class="form-label" for="specialist">Specialist</label>
+                <input class="form-control" name="specialist" id="specialist" type="text" placeholder="CodeIgniter"
+                  required>
+                <div class="invalid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12 position-relative mb-2">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" name="status" id="status" required>
+                  <option selected disabled value="">Default: Active</option>
+                  <option value="active">active</option>
+                  <option value="inactive">inactive</option>
+                  <option value="passed">passed</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid state.
+                </div>
+              </div>
+              <div class="col-12 position-relative mb-2">
+                <label class="form-label" for="email">E-Mail</label>
+                <input class="form-control" name="email" id="email" type="email" placeholder="example@gmail.com"
+                  required>
+                <div class="invalid-feedback">Looks good!</div>
+              </div>
             </div>
-            <div class="col-md-3 position-relative">
-              <label class="form-label" for="validationTooltip04">State</label>
-              <select class="form-select" id="validationTooltip04" required="">
-                <option selected="" disabled="" value="">Choose...</option>
-                <option>U.S </option>
-                <option>Thailand </option>
-                <option>India </option>
-                <option>U.K</option>
-              </select>
-              <div class="invalid-tooltip">Please select a valid state.</div>
-            </div>
-            <div class="col-md-3 position-relative">
-              <label class="form-label" for="validationTooltip05">Zip</label>
-              <input class="form-control" id="validationTooltip05" type="text" required="">
-              <div class="invalid-tooltip">Please provide a valid zip.</div>
-            </div>
-            <div class="col-12">
+            <div class="col-12 text-end">
               <button class="btn btn-primary" type="submit">Submit form</button>
+              <a href="users" class="btn btn-danger">Cancel</a>
             </div>
           </form>
         </div>
