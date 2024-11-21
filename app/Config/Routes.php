@@ -7,9 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->get('/profile', function () {
-  return view('admin/profile/profile');
-});
+// $routes->get('/profile', function () {
+//   return view('admin/profile/profile');
+// });
 
 $routes->get('/users', 'UserController::index');
 $routes->get('/users-add', 'UserController::create');
