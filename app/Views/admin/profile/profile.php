@@ -54,14 +54,14 @@
               <div class="col-sm-12 col-lg-4 order-sm-0 order-xl-1">
                 <div class="user-designation">
                   <div class="title"><a target="_blank" href="#"><?= esc($user["name"]) ?></a></div>
-                  <div class="desc"><?= esc($user["specialist"]) ?></div>
+                  <div class="desc"><?= esc($user["address"]) ?></div>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-4 order-sm-2 order-xl-2">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="ttl-info text-start">
-                      <h5><i class="fa fa-phone"></i>   Contact Us</h5><span>India +91 123-456-7890</span>
+                      <h5><i class="fa fa-phone"></i>   Contact Us</h5><span><?= esc($user["phone"]) ?></span>
                     </div>
                   </div>
                   <div class="col-md-6">

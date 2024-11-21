@@ -31,9 +31,14 @@ class Users extends Migration
                 'null'       => false,
                 'unique'     => true,
             ],
-            'specialist' => [
+            'phone' => [
                 'type'       => 'VARCHAR',
-                'constraint' => 100,
+                'constraint' => 15,
+                'null'       => false,
+            ],
+            'address' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
                 'null'       => false,
             ],
             'cv' => [
@@ -53,6 +58,12 @@ class Users extends Migration
                 'null'       => false,
                 'unique'     => true,
             ],
+            'jurusan_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+                'null'       => false,
+            ],
             'created_at' => [
                 'type'    => 'DATETIME',
                 'null'    => true,
@@ -65,10 +76,12 @@ class Users extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->createTable('users');
+        
     }
 
     public function down()
     {
         $this->forge->dropTable('users');
+        
     }
 }

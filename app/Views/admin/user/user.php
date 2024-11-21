@@ -49,7 +49,6 @@
                   <th>Profile</th>
                   <th>Name</th>
                   <th>NIM</th>
-                  <th>Specialist</th>
                   <th>CV</th>
                   <th>Status</th>
                   <th>E-mail</th>
@@ -62,15 +61,14 @@
                   <td>
                     <div class="d-flex">
                       <div class="flex-shrink-0">
-                        <img src="<?= base_url('./media/profile/'.esc($value->profile)) ?>" alt="" width="70px">
+                        <img src="<?= base_url('./media/profile/'.esc($value->profile)) ?>" alt="" width="70px" style="border-radius: 50%;">
                       </div>
                     </div>
                   </td>
                   <td><?= esc($value->name) ?></td>
                   <td><?= esc($value->nim) ?></td>
-                  <td><?= esc($value->specialist) ?></td>
                   <td class="action">
-                    <a class="pdf" href="<?= base_url("./media/cv/esc($value->cv)") ?>" target="_blank"
+                    <a class="pdf" href="<?= base_url("./media/cv/".esc($value->cv)) ?>" target="_blank"
                       download="<?= esc($value->cv) ?>">
                       <i class="icofont icofont-file-pdf"></i>
                     </a>
@@ -87,12 +85,12 @@
                         <i class="fa fa-list-ul"></i>
                       </button>
                       <ul class="dropdown-menu dropdown-block">
-                        <li><a class="dropdown-item" href="#"><i class="fa fa-magic"></i> Edit</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('./users-edit/'.esc($value->id)) ?>"><i class="fa fa-magic"></i> Edit</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('./users-view/'.esc($value->id)) ?>"><i class="fa fa-folder-open-o"></i> View</a></li>
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item text-danger" href="#"><i class="fa fa-trash-o"></i> Remove</a>
+                        <li><a class="dropdown-item text-danger" href="<?= base_url('./users-remove/'.esc($value->id)) ?>"><i class="fa fa-trash-o"></i> Remove</a>
                         </li>
                       </ul>
                     </div>

@@ -12,7 +12,7 @@ class User extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['profile', 'name', 'nim', 'specialist', 'cv', 'status', 'email'];
+    protected $allowedFields    = ['profile', 'name', 'nim', 'jurusan_id', 'phone', 'cv', 'status', 'email', 'address'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -32,7 +32,6 @@ class User extends Model
         'profile'    => 'is_image[profile]|ext_in[profile,jpg,jpeg,png]|max_size[profile,2048]',
         'name'       => 'required|regex_match[/^[a-zA-Z.\-\s]+$/]|min_length[3]|max_length[100]',
         'nim'        => 'required|exact_length[10]|numeric|is_unique[users.nim]',
-        'specialist' => 'required|max_length[100]',
         'cv'         => 'ext_in[cv,pdf]|max_size[cv,2048]',
         'status'     => 'required|in_list[active,inactive,passed]',
         'email'      => 'required|valid_email|is_unique[users.email]',
@@ -54,10 +53,6 @@ class User extends Model
             'exact_length'=> 'NIM harus memiliki tepat 10 digit.',
             'numeric'     => 'NIM hanya boleh berupa angka.',
             'is_unique'   => 'NIM sudah terdaftar.',
-        ],
-        'specialist' => [
-            'required'    => 'Spesialisasi wajib diisi.',
-            'max_length'  => 'Spesialisasi tidak boleh lebih dari 100 karakter.',
         ],
         'cv' => [
             'ext_in'   => 'CV harus berupa file dengan format PDF.',
